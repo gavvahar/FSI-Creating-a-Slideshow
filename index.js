@@ -19,11 +19,7 @@ bubbleButtons[currentImageIndex].textContent = "●";
 for (let i = 0; i < bubbleButtons.length; i++) {
   bubbleButtons[i].addEventListener("click", function (e) {
     currentImageIndex = i;
-    image.src = images[currentImageIndex];
-    for (let i = 0; i < bubbleButtons.length; i++) {
-      bubbleButtons[i].textContent = "○";
-    }
-    bubbleButtons[currentImageIndex].textContent = "●";
+    swithImage();
   });
 }
 
@@ -31,20 +27,19 @@ previousButton.addEventListener("click", function () {
   if (currentImageIndex > 0) {
     currentImageIndex--;
   }
-  image.src = images[currentImageIndex];
-  for (let i = 0; i < bubbleButtons.length; i++) {
-    bubbleButtons[i].textContent = "○";
-  }
-  bubbleButtons[currentImageIndex].textContent = "●";
+  swithImage();
 });
 
 nextButton.addEventListener("click", function () {
   if (currentImageIndex < 5) {
     currentImageIndex++;
   }
+  swithImage();
+});
+function swithImage() {
   image.src = images[currentImageIndex];
   for (let i = 0; i < bubbleButtons.length; i++) {
     bubbleButtons[i].textContent = "○";
   }
   bubbleButtons[currentImageIndex].textContent = "●";
-});
+}
